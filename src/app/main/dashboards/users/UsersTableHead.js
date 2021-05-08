@@ -10,49 +10,56 @@ import React from 'react';
 const rows = [
 	{
 		id: 'company',
-		align: 'left',
+		align: 'right',
 		disablePadding: false,
 		label: 'Company Name',
 		sort: true
 	},
 	{
 		id: 'email',
-		align: 'left',
+		align: 'right',
 		disablePadding: false,
 		label: 'Email',
 		sort: true
 	},
 	{
 		id: 'nif_vat',
-		align: 'left',
+		align: 'right',
 		disablePadding: false,
 		label: 'NIF/VAT',
 		sort: true
 	},
 	{
 		id: 'phone',
-		align: 'left',
+		align: 'right',
 		disablePadding: false,
 		label: 'Phone',
 		sort: true
 	},
 	{
+		id: 'address',
+		align: 'right',
+		disablePadding: false,
+		label: 'Address',
+		sort: true
+	},
+	{
 		id: 'description',
-		align: 'left',
+		align: 'right',
 		disablePadding: false,
 		label: 'Description',
 		sort: true
 	},
 	{
 		id: 'role',
-		align: 'left',
+		align: 'right',
 		disablePadding: false,
 		label: 'Role',
 		sort: true
 	},
 	{
 		id: 'status',
-		align: 'left',
+		align: 'center',
 		disablePadding: false,
 		label: 'Status',
 		sort: true

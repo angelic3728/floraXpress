@@ -174,26 +174,29 @@ function UsersTable(props) {
 														/>
 													</TableCell>
 
-													<TableCell className="p-4" component="th" scope="row" align="left">
+													<TableCell className="p-4" component="th" scope="row" align="right">
 														{n.company}
 													</TableCell>
 
-													<TableCell className="p-4" component="th" scope="row" align="left">
+													<TableCell className="p-4" component="th" scope="row" align="right">
 														{n.email}
 													</TableCell>
-													<TableCell className="p-4" component="th" scope="row" align="left">
+													<TableCell className="p-4" component="th" scope="row" align="right">
 														{n.nif_vat}
 													</TableCell>
-													<TableCell className="p-4" component="th" scope="row" align="left">
+													<TableCell className="p-4" component="th" scope="row" align="right">
 														{n.phone}
 													</TableCell>
-													<TableCell className="p-4" component="th" scope="row" align="left">
+													<TableCell className="p-4" component="th" scope="row" align="right">
+														{n.address}
+													</TableCell>
+													<TableCell className="p-4" component="th" scope="row" align="right">
 														{n.description}
 													</TableCell>
-													<TableCell className="p-4" component="th" scope="row" align="left">
+													<TableCell className="p-4" component="th" scope="row" align="right">
 														{renderRole(n.role)}
 													</TableCell>
-													<TableCell className="p-4" component="th" scope="row" align="left">
+													<TableCell className="p-4" component="th" scope="row" align="center">
 														{n.status ?
 															<Icon className="text-green text-20">check_circle</Icon>
 															:

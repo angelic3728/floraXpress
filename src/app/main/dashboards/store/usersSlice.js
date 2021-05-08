@@ -20,19 +20,38 @@ export const getUsers = createAsyncThunk('floraXpressApp/users/getUsers', async 
 });
 
 export const updateUsers = createAsyncThunk('floraXpressApp/users/updateUsers', async (params, { dispatch, getState }) => {
-//     const data = response.data;
-//     if (data.status) {
-//         await dispatch(showMessage({
-//             message: "Successfully updated!",//text or html
-//             autoHideDuration: 3000,//ms
-//             anchorOrigin: {
-//                 vertical: 'top',//top bottom
-//                 horizontal: 'right'//left center right
-//             },
-//             variant: 'success'//success error info warning null
-//         }));
-//         await dispatch(getUsers(getState().backendApp.users.last_param));
-//     }
+
+    const role = params.role;
+    const status = params.status;
+    const selectedUserIds = params.selectedUserIds;
+
+    var circle_counter = 0;
+
+    if (role !== 0) {
+        await selectedUserIds.map(async (item, index) => {
+            await firebase.firestore.collection("users").doc("" + item).update({
+                role: role
+            }).then(() => {
+                circle_counter++;
+                if (circle_counter === selectedUserIds.length) {
+                    dispatch(getUsers(getState().floraXpressApp.users.last_param));
+                }
+            });
+        });
+    } else if (status !== 0) {
+        await selectedUserIds.map(async (item, index) => {
+            firebase.firestore.collection("users").doc("" + item).update({
+                status: (status === 1) ? true : false
+            }).then(() => {
+                circle_counter++;
+                if (circle_counter === selectedUserIds.length) {
+                    debugger;
+                    dispatch(getUsers(getState().floraXpressApp.users.last_param));
+                }
+            });
+        });
+    }
+
 });
 
 const usersAdapter = createEntityAdapter({});

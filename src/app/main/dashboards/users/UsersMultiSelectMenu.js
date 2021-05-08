@@ -45,24 +45,11 @@ function UsersMultiSelectMenu(props) {
 							closeSelectedUsersMenu();
                             dispatch(setUsersLoadFlag());
                             props.emptySelected();
-                            dispatch(updateUsers({role:3, status:0, selectedUserIds:selectedUserIds}));
-						}}
-					>
-						<ListItemIcon className="min-w-40">
-							<Icon>star</Icon>
-						</ListItemIcon>
-						<ListItemText primary="Make as SuperAdmin" />
-					</MenuItem>
-					<MenuItem
-						onClick={() => {
-							closeSelectedUsersMenu();
-                            dispatch(setUsersLoadFlag());
-                            props.emptySelected();
                             dispatch(updateUsers({role:2, status:0, selectedUserIds:selectedUserIds}));
 						}}
 					>
 						<ListItemIcon className="min-w-40">
-							<Icon>star_half</Icon>
+							<Icon>star</Icon>
 						</ListItemIcon>
 						<ListItemText primary="Make as Admin" />
 					</MenuItem>
@@ -77,7 +64,7 @@ function UsersMultiSelectMenu(props) {
 						<ListItemIcon className="min-w-40">
 							<Icon>star_border</Icon>
 						</ListItemIcon>
-						<ListItemText primary="Make as Player" />
+						<ListItemText primary="Make as User" />
 					</MenuItem>
                     <MenuItem
 						onClick={() => {

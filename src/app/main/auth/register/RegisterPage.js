@@ -87,6 +87,7 @@ function RegisterPage() {
                 company: form.company,
                 email: form.email,
                 nif_vat: form.nif_vat,
+                phone: form.phone,
                 address: form.address,
                 description: form.description,
                 status: false,

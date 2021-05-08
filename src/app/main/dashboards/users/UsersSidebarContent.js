@@ -53,35 +53,35 @@ function UsersSidebarContent(props) {
         setRole(0);
         setStatus(0);
         dispatch(setUsersLoadFlag());
-        dispatch(getUsers({role:0, status:0, uid:auth_user.uid}));
+        dispatch(getUsers({role:0, status:0}));
     }
 
     const getAdmins = () => {
-        setRole(3);
+        setRole(2);
         setStatus(0);
         dispatch(setUsersLoadFlag());
-        dispatch(getUsers({role:3, status:0, uid:auth_user.uid}));
+        dispatch(getUsers({role:2, status:0}));
     }
 
-    const getUsers = () => {
+    const getStaffs = () => {
         setRole(1);
         setStatus(0);
         dispatch(setUsersLoadFlag());
-        dispatch(getUsers({role:1, status:0, uid:auth_user.uid}));
+        dispatch(getUsers({role:1, status:0}));
     }
 
     const getAllActives = () => {
         setRole(0);
         setStatus(1);
         dispatch(setUsersLoadFlag());
-        dispatch(getUsers({role:0, status:1, uid:auth_user.uid}));
+        dispatch(getUsers({role:0, status:1}));
     }
 
     const getAllSuspends = () => {
         setRole(0);
         setStatus(2);
         dispatch(setUsersLoadFlag());
-        dispatch(getUsers({role:0, status:2, uid:auth_user.uid}));
+        dispatch(getUsers({role:0, status:2}));
     }
 
     return (
@@ -116,7 +116,7 @@ function UsersSidebarContent(props) {
                         </ListItem>
                         <ListItem
                             button
-                            onClick={getUsers}
+                            onClick={getStaffs}
                             className={(role === 1 && status === 0) ? classes.activeListItem: classes.listItem}
                         >
                             <Icon className="list-item-icon text-16" color="action">
