@@ -449,6 +449,10 @@
   margin-bottom: 0.8rem
 }
 
+.ml-8 {
+  margin-left: 0.8rem
+}
+
 .mt-12 {
   margin-top: 1.2rem
 }
@@ -463,6 +467,10 @@
 
 .mb-16 {
   margin-bottom: 1.6rem
+}
+
+.ml-16 {
+  margin-left: 1.6rem
 }
 
 .mb-24 {
@@ -827,6 +835,11 @@
   position: relative
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky
+}
+
 .top-0 {
   top: 0
 }
@@ -1101,8 +1114,16 @@
     display: flex
   }
 
+  .sm\:hidden {
+    display: none
+  }
+
   .sm\:flex-row {
     flex-direction: row
+  }
+
+  .sm\:flex-1 {
+    flex: 1 1 0%
   }
 
   .sm\:h-136 {

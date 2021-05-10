@@ -51,7 +51,6 @@ export const updateUsers = createAsyncThunk('floraXpressApp/users/updateUsers', 
             });
         });
     }
-
 });
 
 const usersAdapter = createEntityAdapter({});

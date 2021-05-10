@@ -66,10 +66,11 @@ function LoginPage(props) {
 			.then(async user => {
 				setAuthenticatingFlag(true);
 				await dispatch(LoginWithFireBase(user));
-				setAuthenticatingFlag(false);
-				if (!props.location.state) {
-					props.history.push('/dashboard');
-				}
+				await setAuthenticatingFlag(false);
+                if(props.state) {
+                    props.history.push(props.state.redirectUrl);
+                }
+				
 			})
 			.catch(error => {
                 setAuthenticatingFlag(false);

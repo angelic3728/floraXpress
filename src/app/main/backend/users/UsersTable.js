@@ -14,7 +14,7 @@ import TableRow from '@material-ui/core/TableRow';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { selectUsers, getUsers } from '../store/usersSlice';
+import { selectUsers, getUsers } from './store/usersSlice';
 import UsersTableHead from './UsersTableHead';
 
 function UsersTable(props) {
@@ -85,8 +85,12 @@ function UsersTable(props) {
 	}
 
 	function renderRole(role) {
-		if (role === 2)
+		if (role === 3)
 			return <Typography className="inline text-12 py-4 px-8 rounded bg-orange text-white font-bold">Admin</Typography>;
+		else if (role === 2)
+			return <Typography className="inline text-12 py-4 px-8 rounded bg-blue text-white font-bold">Seller</Typography>;
+		else if (role === 1)
+			return <Typography className="inline text-12 py-4 px-8 rounded bg-green text-white font-bold">Buyer</Typography>;
 		else
 			return <Typography className="inline text-12 py-4 px-8 rounded bg-blue-700 text-white font-bold">User</Typography>;
 	}
@@ -96,7 +100,7 @@ function UsersTable(props) {
 	}
 
 	useEffect(() => {
-		dispatch(getUsers({role:0, status:0, uid:auth_user.uid}));
+		dispatch(getUsers({ role: 0, status: 0, uid: auth_user.uid }));
 	}, [dispatch, auth_user]);
 
 	useEffect(() => {

@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMainTheme } from 'app/store/fuse/settingsSlice';
-import { setUsersSearchText } from '../store/usersSlice';
+import { setUsersSearchText } from './store/usersSlice';
 
 function UsersHeader(props) {
 	const dispatch = useDispatch();

@@ -1,12 +1,12 @@
 import FusePageSimple from '@fuse/core/FusePageSimple';
 import withReducer from 'app/store/withReducer';
 import React, { useRef } from 'react';
-import reducer from '../store';
+import reducer from './store';
 import UsersHeader from './UsersHeader';
 import UsersTable from './UsersTable';
 import UsersSidebarContent from './UsersSidebarContent'
 
-function Users() {
+function UsersPage() {
     const pageLayout = useRef(null);
 
     return (
@@ -28,4 +28,4 @@ function Users() {
     );
 }
 
-export default withReducer('floraXpressApp', reducer)(Users);
+export default withReducer('floraXpressApp', reducer)(UsersPage);

@@ -4,7 +4,26 @@ import { authRoles } from 'app/auth';
 const ProjectDashboardAppConfig = {
 	settings: {
 		layout: {
-			config: {}
+			config: {
+				navbar: {
+					display: true
+				},
+				toolbar: {
+					display: false
+				},
+				footer: {
+					display: true
+				},
+				leftSidePanel: {
+					display: false
+				},
+				rightSidePanel: {
+					display: false
+				},
+				settingsPanel: {
+					display: false
+				}
+			}
 		}
 	},
 	auth:authRoles.user,

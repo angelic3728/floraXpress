@@ -27,64 +27,55 @@ function UserMenu(props) {
 
 	return (
 		<>
-			<Button className="min-h-40 min-w-40 px-0 md:px-16 py-0 md:py-6" onClick={userMenuClick}>
-				<div className="hidden md:flex flex-col mx-4 items-end">
-					<Typography component="span" className="normal-case font-bold flex">
-						{user.data.displayName}
-					</Typography>
-					<Typography className="text-11 capitalize" color="textSecondary">
-						{user.role.toString()}
-						{(!user.role || (Array.isArray(user.role) && user.role.length === 0)) && 'Guest'}
-					</Typography>
-				</div>
-				<Avatar className="md:mx-4">{user.data.displayName[0]}</Avatar>
-			</Button>
+			{user.role.length !== 0 &&
+				<Button className="min-h-40 min-w-40 px-0 md:px-16 py-0 md:py-6" onClick={userMenuClick}>
+					<div className="hidden md:flex flex-col mx-4 items-end">
+						<Typography component="span" className="normal-case font-bold flex">
+							{user.data.displayName}
+						</Typography>
+						<Typography className="text-11 capitalize" color="textSecondary">
+							{user.role.toString()}
+							{(!user.role || (Array.isArray(user.role) && user.role.length === 0)) && 'Guest'}
+						</Typography>
+					</div>
+					<Avatar className="md:mx-4">{user.data.displayName[0]}</Avatar>
+				</Button>
+			}
+			{(!user.role || user.role.length === 0) &&
+				<>
+					<MenuItem component={Link} to="/auth/login" role="button">
+						<ListItemIcon className="min-w-40">
+							<Icon>lock</Icon>
+						</ListItemIcon>
+						<ListItemText primary="Login" />
+					</MenuItem>
+					<MenuItem component={Link} to="/auth/register" role="button">
+						<ListItemIcon className="min-w-40">
+							<Icon>person_add</Icon>
+						</ListItemIcon>
+						<ListItemText primary="Register" />
+					</MenuItem>
+				</>
+			}
 
-			<Popover
-				open={Boolean(userMenu)}
-				anchorEl={userMenu}
-				onClose={userMenuClose}
-				anchorOrigin={{
-					vertical: 'bottom',
-					horizontal: 'center'
-				}}
-				transformOrigin={{
-					vertical: 'top',
-					horizontal: 'center'
-				}}
-				classes={{
-					paper: 'py-8'
-				}}
-			>
-				{!user.role || user.role.length === 0 ? (
+			{(user && user.role.length !== 0) &&
+				<Popover
+					open={Boolean(userMenu)}
+					anchorEl={userMenu}
+					onClose={userMenuClose}
+					anchorOrigin={{
+						vertical: 'bottom',
+						horizontal: 'center'
+					}}
+					transformOrigin={{
+						vertical: 'top',
+						horizontal: 'center'
+					}}
+					classes={{
+						paper: 'py-8'
+					}}
+				>
 					<>
-						<MenuItem component={Link} to="/auth/login" role="button">
-							<ListItemIcon className="min-w-40">
-								<Icon>lock</Icon>
-							</ListItemIcon>
-							<ListItemText primary="Login" />
-						</MenuItem>
-						<MenuItem component={Link} to="/auth/register" role="button">
-							<ListItemIcon className="min-w-40">
-								<Icon>person_add</Icon>
-							</ListItemIcon>
-							<ListItemText primary="Register" />
-						</MenuItem>
-					</>
-				) : (
-					<>
-						<MenuItem component={Link} to="/pages/profile" onClick={userMenuClose} role="button">
-							<ListItemIcon className="min-w-40">
-								<Icon>account_circle</Icon>
-							</ListItemIcon>
-							<ListItemText primary="My Profile" />
-						</MenuItem>
-						<MenuItem component={Link} to="/apps/mail" onClick={userMenuClose} role="button">
-							<ListItemIcon className="min-w-40">
-								<Icon>mail</Icon>
-							</ListItemIcon>
-							<ListItemText primary="Inbox" />
-						</MenuItem>
 						<MenuItem
 							onClick={() => {
 								dispatch(logoutUser());
@@ -97,8 +88,8 @@ function UserMenu(props) {
 							<ListItemText primary="Logout" />
 						</MenuItem>
 					</>
-				)}
-			</Popover>
+				</Popover>
+			}
 		</>
 	);
 }

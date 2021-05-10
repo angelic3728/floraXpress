@@ -7,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateUsers, setUsersLoadFlag } from '../store/usersSlice';
+import { updateUsers, setUsersLoadFlag } from './store/usersSlice';
 
 function UsersMultiSelectMenu(props) {
 	const dispatch = useDispatch();
@@ -45,7 +45,7 @@ function UsersMultiSelectMenu(props) {
 							closeSelectedUsersMenu();
                             dispatch(setUsersLoadFlag());
                             props.emptySelected();
-                            dispatch(updateUsers({role:2, status:0, selectedUserIds:selectedUserIds}));
+                            dispatch(updateUsers({role:3, status:0, selectedUserIds:selectedUserIds}));
 						}}
 					>
 						<ListItemIcon className="min-w-40">
@@ -58,13 +58,26 @@ function UsersMultiSelectMenu(props) {
 							closeSelectedUsersMenu();
                             dispatch(setUsersLoadFlag());
                             props.emptySelected();
+                            dispatch(updateUsers({role:2, status:0, selectedUserIds:selectedUserIds}));
+						}}
+					>
+						<ListItemIcon className="min-w-40">
+							<Icon>star_half</Icon>
+						</ListItemIcon>
+						<ListItemText primary="Make as Seller" />
+					</MenuItem>
+					<MenuItem
+						onClick={() => {
+							closeSelectedUsersMenu();
+                            dispatch(setUsersLoadFlag());
+                            props.emptySelected();
                             dispatch(updateUsers({role:1, status:0, selectedUserIds:selectedUserIds}));
 						}}
 					>
 						<ListItemIcon className="min-w-40">
 							<Icon>star_border</Icon>
 						</ListItemIcon>
-						<ListItemText primary="Make as User" />
+						<ListItemText primary="Make as Buyer" />
 					</MenuItem>
                     <MenuItem
 						onClick={() => {

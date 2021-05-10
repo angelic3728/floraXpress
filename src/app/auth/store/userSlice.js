@@ -73,23 +73,37 @@ export const setUserData = authUser => async (dispatch, getState) => {
 	const guestUser = getState().auth.user;
 	const fuseDefaultSettings = getState().fuse.settings.defaults;
 
-	const getUserRole = (role) => {
-		debugger;
+	const setRedirectUrl = (role) => {
 		if (role === 1)
-			return authRoles.user
+			history.location.state = {
+				redirectUrl: 'buyer'  // for example 'apps/academy'
+			};
 		else if (role === 2)
-			return authRoles.staff
+			history.location.state = {
+				redirectUrl: 'seller'  // for example 'apps/academy'
+			};
+		else if (role === 3)
+			history.location.state = {
+				redirectUrl: 'dashboard'  // for example 'apps/academy'
+			};
+	}
+
+	const getUserRole = (role) => {
+		if (role === 1)
+			return authRoles.buyer
+		else if (role === 2)
+			return authRoles.seller
 		else if (role === 3)
 			return authRoles.admin
 		else
 			return []
 	}
-	
+
 	const userRef = firebaseService.firestore.collection("users").doc("" + authUser.uid);
-	debugger;
 	userRef.get().then(function (doc) {
 		if (doc.exists) {
 			if (doc.data().status) {
+				setRedirectUrl(doc.data().role);
 				const user = _.merge({}, guestUser, {
 					uid: authUser.uid,
 					from: 'firebase',

@@ -10,40 +10,58 @@ i18next.addResourceBundle('ar', 'navigation', ar);
 
 const navigationConfig = [
 	{
-		id: 'applications',
-		title: 'Applications',
-		translate: 'APPLICATIONS',
-		type: 'group',
-		icon: 'apps',
-		children: [
-			{
-				id: 'dashboard',
-				title: 'Dashboard',
-				translate: 'Dashboard',
-				type: 'item',
-				icon: 'dashboard',
-				url: '/dashboard'
-			},
-			{
-				id: 'products',
-				title: 'Products',
-				translate: 'Products',
-				type: 'item',
-				auth : authRoles.user,
-				icon: 'shopping_cart',
-				url: '/products'
-			},
-			{
-				id: 'users',
-				title: 'Users',
-				translate: 'Users',
-				type: 'item',
-				auth : authRoles.user,
-				icon: 'people',
-				url: '/users'
-			}
-		]
-	}
+		id: 'dashboard',
+		title: 'Dashboard',
+		translate: 'Dashboard',
+		type: 'item',
+		auth : authRoles.admin,
+		icon: 'dashboard',
+		url: '/dashboard'
+	},
+	{
+		id: 'products',
+		title: 'Products',
+		translate: 'Products',
+		type: 'item',
+		auth : authRoles.admin,
+		icon: 'shopping_cart',
+		url: '/products'
+	},
+	{
+		id: 'users',
+		title: 'Users',
+		translate: 'Users',
+		type: 'item',
+		auth : authRoles.admin,
+		icon: 'people',
+		url: '/users'
+	},
+	{
+		id: 'buyer_page',
+		title: 'Buyer page',
+		translate: 'Buyer Page',
+		type: 'item',
+		auth : authRoles.buyer,
+		icon: 'shopping_cart',
+		url: '/buyer'
+	},
+	{
+		id: 'seller_page',
+		title: 'Seller page',
+		translate: 'Seller Page',
+		type: 'item',
+		auth : authRoles.seller,
+		icon: 'payment',
+		url: '/seller'
+	},
+	{
+		id: 'to_home',
+		title: 'Back To Home',
+		translate: 'Back to home',
+		type: 'item',
+		icon: 'home',
+		url: '/home'
+	},
 ];
 
 export default navigationConfig;
