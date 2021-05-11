@@ -5,7 +5,7 @@ const HomeConfig = {
 		layout: {
 			config: {
 				navbar: {
-					display: false
+					display: true
 				},
 				toolbar: {
 					display: true
@@ -28,7 +28,7 @@ const HomeConfig = {
 	routes: [
 		{
 			path: '/buyer',
-			component: React.lazy(() => import('./BuyerPageConfig'))
+			component: React.lazy(() => import('./BuyerPage'))
 		},
 	]
 };
